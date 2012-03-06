@@ -24,7 +24,7 @@ img.addEventListener("load", function(){
 	cnv.height           = img.height;
 	cnv.style.marginTop  = -(img.height/2)+"px";
 	cnv.style.marginLeft = -(img.width /2)+"px";
-	c.drawImage(img, -100, 0);
+	c.drawImage(img, 0, 0);
 	if(dbg) console.log('image loaded');
 	if(dbg) console.log('img w: '+ img.width);
 	if(dbg) console.log('img h: '+ img.height);
