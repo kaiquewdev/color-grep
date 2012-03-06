@@ -1,15 +1,17 @@
 @import url('normalize.css');
 
-#dropArea{
-	background:rgba(133,0,0,.3);
-	width:780px;
-	height:50px;
-	border:1px solid #ccc;
-	padding:10px;
+body{
+	background:#666;
 }
 
-#captureArea{
-	background:rgba(0,133,0,.3);
+#theCanvas{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-150px 0 0 -150px;
+	cursor:crosshair !important;
+	border:1px solid #333;
+	background:white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi/P//PwM2cPbsWaziTAwkglENxADGM2fOYJUwNjYeDSVkDbgSLE4NjIyMxGsACDAAByULgNBNdIAAAAAASUVORK5CYII=');
 }
 
 #info{
@@ -17,9 +19,12 @@
 	right:20px;
 	top:20px;
 	padding:20px;
+	width:220px;
+	height:170px;
 	background:#fff;
 	border-radius:10px;
 }
+
 #info p{
 	font:normal 22px monospace;
 	color:#fff;
