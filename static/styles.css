@@ -1,0 +1,13 @@
+@import url('normalize.css');
+
+#dropArea{
+	background:rgba(133,0,0,.3);
+	width:880px;
+	height:50px;
+	border:1px solid #ccc;
+	padding:10px;
+}
+
+#captureArea{
+	background:rgba(0,133,0,.3);
+}
