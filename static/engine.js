@@ -59,8 +59,9 @@ function onClick(e){
 	    coord = "x=" + x + ", y=" + y,
 	    p = c.getImageData(x, y, 1, 1).data,
 	    hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-	doc.querySelector('#rgb').innerHTML = p[0] +", "+ p[1] +", "+ p[2];
-	doc.querySelector('#hex').innerHTML = hex;
+	doc.querySelector("#rgb").innerHTML = "rgb: "+ p[0] +", "+ p[1] +", "+ p[2];
+	doc.querySelector("#hex").innerHTML = "hex: "+ hex;
+	doc.querySelector("#info").style.backgroundColor = hex;
 }
 
 function rgbToHex(r, g, b) {

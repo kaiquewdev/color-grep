@@ -2,7 +2,7 @@
 
 #dropArea{
 	background:rgba(133,0,0,.3);
-	width:880px;
+	width:780px;
 	height:50px;
 	border:1px solid #ccc;
 	padding:10px;
@@ -10,4 +10,18 @@
 
 #captureArea{
 	background:rgba(0,133,0,.3);
+}
+
+#info{
+	position:fixed;
+	right:20px;
+	top:20px;
+	padding:20px;
+	background:#fff;
+	border-radius:10px;
+}
+#info p{
+	font:normal 22px monospace;
+	color:#fff;
+	text-shadow:0 0 5px #000;
 }
