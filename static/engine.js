@@ -4,7 +4,7 @@ var win = window,
     img = document.createElement("img"),
     cnv = doc.querySelector("#theCanvas");
       c = cnv.getContext("2d"),
-	  dbg = true;
+	  dbg = false;
 
 // listeners
 doc.addEventListener("DOMContentLoaded", init, false);
@@ -20,8 +20,14 @@ function init(){
 
 // execute as soon as the image is loaded
 img.addEventListener("load", function(){
-	c.drawImage(img, 0, 0);
+	cnv.width            = img.width;
+	cnv.height           = img.height;
+	cnv.style.marginTop  = -(img.height/2)+"px";
+	cnv.style.marginLeft = -(img.width /2)+"px";
+	c.drawImage(img, -100, 0);
 	if(dbg) console.log('image loaded');
+	if(dbg) console.log('img w: '+ img.width);
+	if(dbg) console.log('img h: '+ img.height);
 })
 
 function dragEnter(e){
@@ -40,7 +46,6 @@ function drop(e){
 	var images = e.dataTransfer.files;
 	if(images.length > 0){
 		var theImage = images[0];
-console.log("w: "+ theImage.width);
 		if(typeof FileReader !== "undefined"){
 			var reader = new FileReader();
 			reader.onload = function(e){

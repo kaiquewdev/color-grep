@@ -12,6 +12,15 @@ body{
 	cursor:crosshair !important;
 	border:1px solid #333;
 	background:white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi/P//PwM2cPbsWaziTAwkglENxADGM2fOYJUwNjYeDSVkDbgSLE4NjIyMxGsACDAAByULgNBNdIAAAAAASUVORK5CYII=');
+	-webkit-transform-style:preserve-3d; 
+	   -moz-transform-style:preserve-3d; 
+	    -ms-transform-style:preserve-3d; 
+	     -o-transform-style:preserve-3d; 
+	        transform-style:preserve-3d; 
+	-webkit-transition: all 200ms ease; 
+	   -moz-transition: all 200ms ease; 
+	     -o-transition: all 200ms ease; 
+	        transition: all 200ms ease;
 }
 
 #info{
