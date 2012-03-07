@@ -6,15 +6,15 @@ var win = window,
     cnv = doc.querySelector("#theCanvas");
       c = cnv.getContext("2d"),
    info = doc.querySelector("#info"),
-	  dbg = false; // set debug flag
+   ihex = doc.querySelector("#info #hex"),
+   irgb = doc.querySelector("#info #rgb"),
+   ihsl = doc.querySelector("#info #hsl"),
+   iinv = doc.querySelector("#info #inv"),
+ mGlass = doc.createElement("div"),
+    dbg = true; // set debug flag
 
 // listeners
 doc.addEventListener("DOMContentLoaded", init, false);
-
-var mGlass;
-    mGlass = doc.createElement("div");
-    mGlass.id = "mGlass";
-doc.querySelector("#elementsHolder").appendChild(mGlass);
 
 // loads as soon as the DOM is loaded
 function init(){
@@ -26,6 +26,10 @@ function init(){
 	cnv.addEventListener("mouseover", cnvOver, false);
 	eh.addEventListener("click", ehClick, false);
 	info.addEventListener("click", infoClick, false);
+
+	mGlass.id = "mGlass";
+	eh.appendChild(mGlass);
+
 	if(dbg) console.log("initialized.");
 };
 
@@ -82,7 +86,10 @@ function drop(e){
 		}
 	}
 
-	info.style.top = "-180px";
+	info.style.top        = "-220px";
+	eh.style.border       = "1px solid #333";
+	eh.style.borderRadius = "0";
+	eh.style.boxShadow    = "none";
 
 	e.stopPropagation();
 	e.preventDefault();
@@ -96,11 +103,18 @@ function ehClick(e){
 	    coord = "x=" + x + ", y=" + y,
 	    p = c.getImageData(x, y, 1, 1).data,
 	    hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6),
-	    hsl = rgbToHsl(p[0], p[1], p[2]);
-	doc.querySelector("#rgb").innerHTML = "rgb: "+ p[0] +","+ p[1] +","+ p[2];
-	doc.querySelector("#hex").innerHTML = "hex: "+ hex;
-	doc.querySelector("#hsl").innerHTML = "hsl: "+ hsl;
-	doc.querySelector("#info").style.backgroundColor = hex;
+	    hsl = Colour(hex).toHSLString(),
+	    inv = Colour(hex).invert().toString();
+	irgb.innerHTML = "rgb: "+ p[0] +","+ p[1] +","+ p[2];
+	ihex.innerHTML = "hex: "+ hex;
+	ihsl.innerHTML = "hsl: "+ hsl;
+	iinv.innerHTML = "inv: "+ inv;
+	irgb.style.color = inv;
+	ihex.style.color = inv;
+	ihsl.style.color = inv;
+	iinv.style.color = inv;
+	
+	info.style.backgroundColor = hex;
 
 	if(info.style.top !== "-12px"){
 		info.style.top = "-12px";
@@ -115,30 +129,6 @@ function rgbToHex(r, g, b) {
 	if(dbg) console.log("converted rgb to hex");
 
 	return ((r << 16) | (g << 8) | b).toString(16);
-}
-
-function rgbToHsl(r, g, b){
-	r /= 255, 
-	g /= 255, 
-	b /= 255;
-	var max = Math.max(r, g, b), min = Math.min(r, g, b),
-	    h, s, l = (max + min) / 2;
-
-	if(max == min){
-		h = s = 0; // achromatic
-	} else {
-		var d = max - min;
-		s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-		switch(max){
-			case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-			case g: h = (b - r) / d + 2; break;
-			case b: h = (r - g) / d + 4; break;
-		}
-		h /= 6;
-	}
-
-	if(dbg) console.log("converted rgb to hsl");
-	return [Math.floor(h * 360), Math.floor(s * 100)+"%", Math.floor(l * 100)+"%"];
 }
 
 function findPos(obj) {
