@@ -13,7 +13,6 @@ body{
 	cursor:crosshair !important;
 	border:1px solid #333;
 	opacity:.3;
-	z-index:1;
 	background:white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi/P//PwM2cPbsWaziTAwkglENxADGM2fOYJUwNjYeDSVkDbgSLE4NjIyMxGsACDAAByULgNBNdIAAAAAASUVORK5CYII=');
 	-webkit-transform-style:preserve-3d; 
 	   -moz-transform-style:preserve-3d; 
@@ -29,11 +28,10 @@ body{
 #info{
 	position:fixed;
 	right:20px;
-	top:-12px;
+	top:-180px;
 	padding:5px 20px;
 	width:230px;
 	height:170px;
-	z-index:3;
 	background:#fff;
 	border-radius:10px;
 	-webkit-transform-style:preserve-3d; 
@@ -63,7 +61,7 @@ body{
 	background:rgba(255, 255, 255, .3);
 	border:5px solid #ddd;
 	box-shadow:inset 0 0 10px 2px #333, 0 0 10px 1px #666;
-	z-index:2;
+	z-index:9;
 /*	-webkit-transform-style:preserve-3d; 
 	   -moz-transform-style:preserve-3d; 
 	    -ms-transform-style:preserve-3d; 

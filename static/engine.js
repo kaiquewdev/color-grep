@@ -82,6 +82,8 @@ function drop(e){
 		}
 	}
 
+	info.style.top = "-180px";
+
 	e.stopPropagation();
 	e.preventDefault();
 	if(dbg) console.log("dropped!");
@@ -99,6 +101,11 @@ function ehClick(e){
 	doc.querySelector("#hex").innerHTML = "hex: "+ hex;
 	doc.querySelector("#hsl").innerHTML = "hsl: "+ hsl;
 	doc.querySelector("#info").style.backgroundColor = hex;
+
+	if(info.style.top !== "-12px"){
+		info.style.top = "-12px";
+	}
+
 	if(dbg) console.log("clicked!");
 }
 
