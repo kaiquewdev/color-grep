@@ -18,3 +18,7 @@ This name from the `g/re/p` (or `grep`) command, used on some systems to retriev
 
 
 > This web app's idea came from a need I had to practice, so I tried to do something I really use.
+
+---
+
+[Distrubuted under The MIT License](http://daniel.mit-license.org/)
