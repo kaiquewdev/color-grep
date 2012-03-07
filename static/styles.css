@@ -33,6 +33,15 @@ body{
 	height:170px;
 	background:#fff;
 	border-radius:10px;
+	-webkit-transform-style:preserve-3d; 
+	   -moz-transform-style:preserve-3d; 
+	    -ms-transform-style:preserve-3d; 
+	     -o-transform-style:preserve-3d; 
+	        transform-style:preserve-3d; 
+	-webkit-transition: all 250ms ease-in-out; 
+	   -moz-transition: all 250ms ease-in-out; 
+	     -o-transition: all 250ms ease-in-out; 
+	        transition: all 250ms ease-in-out;
 }
 
 #info p{
@@ -40,3 +49,25 @@ body{
 	color:#fff;
 	text-shadow:0 0 5px #000;
 }
+
+#mGlass{
+	display:none;
+	border-radius:50%;
+	position:absolute;
+	width: 120px;
+	height:120px;
+	cursor:crosshair;
+	background:rgba(255, 255, 255, .3);
+	border:5px solid #ddd;
+	box-shadow:inset 0 0 10px 2px #333, 0 0 10px 1px #666;
+	z-index:3;
+/*	-webkit-transform-style:preserve-3d; 
+	   -moz-transform-style:preserve-3d; 
+	    -ms-transform-style:preserve-3d; 
+	     -o-transform-style:preserve-3d; 
+	        transform-style:preserve-3d; 
+	-webkit-transition: all 100ms ease-in-out; 
+	   -moz-transition: all 100ms ease-in-out; 
+	     -o-transition: all 100ms ease-in-out; 
+	        transition: all 100ms ease-in-out;
+*/}

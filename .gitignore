@@ -22,6 +22,9 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 
+# livereload
+.livereload
+
 # Dreamweaver added files
 _notes
 dwsync.xml
