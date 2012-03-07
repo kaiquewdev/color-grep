@@ -1,6 +1,6 @@
 var win = window,
     doc = win.document,
-     da = doc.querySelector("#theCanvas");
+     da = doc;
     img = document.createElement("img"),
     cnv = doc.querySelector("#theCanvas");
       c = cnv.getContext("2d"),
