@@ -22,8 +22,8 @@ function init(){
 	da.addEventListener("dragover", dragOver, false);
 	da.addEventListener("drop", drop, false);
 	eh.addEventListener("mousemove", ehMove, false);
+	eh.addEventListener("mouseout", ehOut, false);
 	cnv.addEventListener("mouseover", cnvOver, false);
-	cnv.addEventListener("mouseout", cnvOut, false);
 	cnv.addEventListener("click", onClick, false);
 	info.addEventListener("mouseover", infoOver, false);
 	if(dbg) console.log("initialized.");
@@ -33,9 +33,11 @@ function init(){
 img.addEventListener("load", function(){
 	cnv.width            = img.width;
 	cnv.height           = img.height;
-	cnv.style.marginTop  = -(img.height/2)+"px";
-	cnv.style.marginLeft = -(img.width /2)+"px";
-	cnv.style.opacity    = 1;
+	eh.style.width       = img.width  + "px";
+	eh.style.height      = img.height + "px";
+	eh.style.marginTop   = -(img.height/2)+"px";
+	eh.style.marginLeft  = -(img.width /2)+"px";
+	eh.style.opacity     = 1;
 	c.drawImage(img, 0, 0);
 	if(dbg) console.log("image loaded");
 	if(dbg) console.log("img w: "+ img.width);
@@ -49,7 +51,7 @@ function dragEnter(e){
 }
 
 function dragOver(e){
-	cnv.style.opacity = 0.3;
+	eh.style.opacity = 0.3;
 
 	e.stopPropagation();
 	e.preventDefault();
@@ -140,31 +142,33 @@ function cnvOver(e){
 	}
 }
 
-function cnvOut(e){
+function ehOut(e){
 	if(
 		(doc.querySelector("#mGlass").style.display == "block")
-		&& ( e.clientX < cnv.offsetLeft 
-			|| e.clientX > (cnv.offsetLeft + cnv.offsetWidth)
-			|| e.clientY < cnv.offsetTop
-			|| e.clientY > (cnv.offsetTop + cnv.offsetHeight))
+		&& ( e.clientX < eh.offsetLeft 
+			|| e.clientX > (eh.offsetLeft + eh.offsetWidth)
+			|| e.clientY < eh.offsetTop
+			|| e.clientY > (eh.offsetTop + eh.offsetHeight))
 		){
 		doc.querySelector("#mGlass").style.display = "none";
+
 		if(dbg) console.log('mGlass removed');
 	}
 }
 
 function ehMove(e){
-	var x = (e.clientX - 60),
-	    y = (e.clientY - 60);
+	var x = (e.clientX - eh.offsetLeft - 65),
+	    y = (e.clientY - eh.offsetTop  - 65);
 
-	if(e.clientX > cnv.offsetLeft 
-		 || e.clientX < (cnv.offsetLeft + cnv.offsetWidth)
-		 || e.clientY > cnv.offsetTop
-		 || e.clientY < (cnv.offsetTop + cnv.offsetHeight)){
+	if(e.clientX > eh.offsetLeft 
+		 || e.clientX < (eh.offsetLeft + eh.offsetWidth)
+		 || e.clientY > eh.offsetTop
+		 || e.clientY < (eh.offsetTop + eh.offsetHeight)){
 		doc.querySelector("#mGlass").style.top  = y + "px";
 		doc.querySelector("#mGlass").style.left = x + "px";
 	}
 
+	if(dbg) console.log("off L: "+ eh.offsetLeft + " | off T: "+ eh.offsetTop);
 	if(dbg) console.log("over: x "+ x +" | y "+ y );
 }
 
