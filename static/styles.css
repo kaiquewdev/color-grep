@@ -1,0 +1,71 @@
+@import url('normalize.css');
+
+*{
+	font-family:"Open Sans", sans-serif;
+}
+
+body{
+	background:#666;
+}
+
+#elementsHolder{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-150px 0 0 -150px;
+	padding:0;
+	cursor:crosshair !important;
+	border:10px solid #999;
+	border-radius:50%;
+	box-shadow:inset 0 0 50px 30px #666,
+	           0 0 30px 20px #444;
+	background:white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADdJREFUeNpi/P//PwM2cPbsWaziTAwkglENxADGM2fOYJUwNjYeDSVkDbgSLE4NjIyMxGsACDAAByULgNBNdIAAAAAASUVORK5CYII=');
+	-webkit-transform-style:preserve-3d; 
+	   -moz-transform-style:preserve-3d; 
+	    -ms-transform-style:preserve-3d; 
+	     -o-transform-style:preserve-3d; 
+	        transform-style:preserve-3d; 
+	-webkit-transition: opacity 500ms ease-in; 
+	   -moz-transition: opacity 500ms ease-in; 
+	     -o-transition: opacity 500ms ease-in; 
+	        transition: opacity 500ms ease-in;
+}
+
+#info{
+	position:fixed;
+	right:20px;
+	top:-220px;
+	padding:5px 20px;
+	width:250px;
+	height:200px;
+	background:#fff;
+	border-radius:10px;
+	-webkit-transform-style:preserve-3d; 
+	   -moz-transform-style:preserve-3d; 
+	    -ms-transform-style:preserve-3d; 
+	     -o-transform-style:preserve-3d; 
+	        transform-style:preserve-3d; 
+	-webkit-transition: all 250ms ease-in-out; 
+	   -moz-transition: all 250ms ease-in-out; 
+	     -o-transition: all 250ms ease-in-out; 
+	        transition: all 250ms ease-in-out;
+}
+
+#info p{
+	font:bold 18px "Open Sans";
+	text-transform:uppercase;
+	letter-spacing:1px;
+	color:#fff;
+}
+
+#mGlass{
+	display:none;
+	border-radius:50%;
+	position:absolute;
+	width: 120px;
+	height:120px;
+	cursor:crosshair !important;
+	background:rgba(255, 255, 255, .3);
+	border:5px solid #ddd;
+	box-shadow:inset 0 0 10px 2px #333, 0 0 10px 1px #666;
+}
