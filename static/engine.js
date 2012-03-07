@@ -24,6 +24,7 @@ img.addEventListener("load", function(){
 	cnv.height           = img.height;
 	cnv.style.marginTop  = -(img.height/2)+"px";
 	cnv.style.marginLeft = -(img.width /2)+"px";
+	cnv.style.opacity    = 1;
 	c.drawImage(img, 0, 0);
 	if(dbg) console.log('image loaded');
 	if(dbg) console.log('img w: '+ img.width);
@@ -37,6 +38,8 @@ function dragEnter(e){
 }
 
 function dragOver(e){
+	cnv.style.opacity = 0.3;
+
 	e.stopPropagation();
 	e.preventDefault();
 	if(dbg) console.log("drag over!");
