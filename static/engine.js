@@ -11,7 +11,7 @@ var win = window,
    ihsl = doc.querySelector("#info #hsl"),
    iinv = doc.querySelector("#info #inv"),
  mGlass = doc.createElement("div"),
-    dbg = true; // set debug flag
+    dbg = false; // set debug flag
 
 // listeners
 doc.addEventListener("DOMContentLoaded", init, false);
