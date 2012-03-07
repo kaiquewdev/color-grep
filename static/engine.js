@@ -24,8 +24,8 @@ function init(){
 	eh.addEventListener("mousemove", ehMove, false);
 	eh.addEventListener("mouseout", ehOut, false);
 	cnv.addEventListener("mouseover", cnvOver, false);
-	cnv.addEventListener("click", onClick, false);
-	info.addEventListener("mouseover", infoOver, false);
+	eh.addEventListener("click", ehClick, false);
+	info.addEventListener("click", infoClick, false);
 	if(dbg) console.log("initialized.");
 };
 
@@ -35,10 +35,21 @@ img.addEventListener("load", function(){
 	cnv.height           = img.height;
 	eh.style.width       = img.width  + "px";
 	eh.style.height      = img.height + "px";
-	eh.style.marginTop   = -(img.height/2)+"px";
-	eh.style.marginLeft  = -(img.width /2)+"px";
-	eh.style.opacity     = 1;
+	if(img.width <= window.innerWidth){
+		eh.style.top         = "50%";
+		eh.style.left        = "50%";
+		eh.style.marginTop   = -(img.height/2)+"px";
+		eh.style.marginLeft  = -(img.width /2)+"px";
+	} else { 
+		eh.style.marginTop   = 0;
+		eh.style.marginLeft  = 0;
+		eh.style.top         = 0;
+		eh.style.left        = 0;
+	}
+	eh.style.opacity       = 1;
 	c.drawImage(img, 0, 0);
+	window.scrollTo(0,0);
+
 	if(dbg) console.log("image loaded");
 	if(dbg) console.log("img w: "+ img.width);
 	if(dbg) console.log("img h: "+ img.height);
@@ -76,7 +87,7 @@ function drop(e){
 	if(dbg) console.log("dropped!");
 }
 
-function onClick(e){
+function ehClick(e){
 	var pos = findPos(this),
 	    x = e.pageX - pos.x,
 	    y = e.pageY - pos.y,
@@ -157,13 +168,15 @@ function ehOut(e){
 }
 
 function ehMove(e){
-	var x = (e.clientX - eh.offsetLeft - 65),
-	    y = (e.clientY - eh.offsetTop  - 65);
+	var rX = (e.clientX + win.scrollX), // realX
+	    rY = (e.clientY + win.scrollY), // realY
+	     x = (rX - eh.offsetLeft - 65), // x for mGlass
+	     y = (rY - eh.offsetTop  - 65); // y for mGlass
 
-	if(e.clientX > eh.offsetLeft 
-		 || e.clientX < (eh.offsetLeft + eh.offsetWidth)
-		 || e.clientY > eh.offsetTop
-		 || e.clientY < (eh.offsetTop + eh.offsetHeight)){
+	if(rX > eh.offsetLeft 
+		 || rX < (eh.offsetLeft + eh.offsetWidth)
+		 || rY > eh.offsetTop
+		 || rY < (eh.offsetTop + eh.offsetHeight)){
 		doc.querySelector("#mGlass").style.top  = y + "px";
 		doc.querySelector("#mGlass").style.left = x + "px";
 	}
@@ -172,7 +185,7 @@ function ehMove(e){
 	if(dbg) console.log("over: x "+ x +" | y "+ y );
 }
 
-function infoOver(){
+function infoClick(){
 	if(info.offsetLeft > 20){
 		info.style.left = 20 + "px";
 	} else { 
