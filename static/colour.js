@@ -550,5 +550,3 @@ Colour.swatches = {
 };
 
 }(this));
-
-
