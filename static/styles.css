@@ -69,3 +69,40 @@ body{
 	border:5px solid #ddd;
 	box-shadow:inset 0 0 10px 2px #333, 0 0 10px 1px #666;
 }
+
+p.drop{
+	position:absolute;
+	top:15%;
+	left:50%;
+	margin:0 -185px;
+	width:370px;
+	height:50px;
+	overflow:visible;
+	font:bold 32px 'Open Sans', sans-serif;
+	text-align:center;
+	letter-spacing:-2px;
+	color:white;
+	text-shadow:0 0 3px #333;
+}
+
+p.drop span{
+	position:absolute;
+	top:70px;
+	left:50%;
+	margin-left:-25px;
+	display:block;
+	width:50px;
+	float:right;
+	font:bold 72px 'Open Sans', sans-serif;
+	-webkit-animation: arrow 2s infinite;
+	   -moz-animation: arrow 2s infinite;
+	    -ms-animation: arrow 2s infinite;
+	     -o-animation: arrow 2s infinite;
+	        animation: arrow 2s infinite;
+}
+
+@-webkit-keyframes arrow {
+	0%			{ top: 70px; }
+	50%			{ top: 140px; }
+	100%		{ top: 70px; }
+}
