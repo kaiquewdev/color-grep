@@ -95,6 +95,10 @@ p.drop span{
 	float:right;
 	font:bold 72px 'Open Sans', sans-serif;
 	-webkit-animation: arrow 2s infinite;
+	   -moz-animation: arrow 2s infinite;
+	    -ms-animation: arrow 2s infinite;
+	     -o-animation: arrow 2s infinite;
+	        animation: arrow 2s infinite;
 }
 
 @-webkit-keyframes arrow {

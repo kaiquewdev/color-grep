@@ -10,6 +10,7 @@ var win = window,
    irgb = doc.querySelector("#info #rgb"),
    ihsl = doc.querySelector("#info #hsl"),
    iinv = doc.querySelector("#info #inv"),
+  helpr = doc.querySelector("p.drop");
  mGlass = doc.createElement("div"),
     dbg = false; // set debug flag
 
@@ -90,6 +91,7 @@ function drop(e){
 	eh.style.border       = "1px solid #333";
 	eh.style.borderRadius = "0";
 	eh.style.boxShadow    = "none";
+	helpr.style.display   = "none";
 
 	e.stopPropagation();
 	e.preventDefault();
