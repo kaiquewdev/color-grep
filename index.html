@@ -3,10 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<title>Color grep</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href="static/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<header>
+		<section id="about" class="descriptions">
+			<h2>About</h2>
+			<p>The intention of color grep is to help you picking an exact color from almost any image.</p>
+			
+			<h2>Why this and not a browser extension?</h2>
+			<p>Extensions are good to pick color from images already on the browser, not that good for local images. And anyway, I prefer to do a complete webapp :)</p>
+
+			<h2>What's been used to do it?</h2>
+			<p>HTML(5), CSS(3), pure JavaScript and <a href="https://github.com/n3dst4/colour.js" title="colour.js" target="_blank">colour.js</a> (for color calculations)</p>
+			<p>Drag & Drop HTML5 JavaScript API, Canvas and hamsters.</p>
+		</section><!-- /descriptions -->
+
+		<menu>
+			<li><a class="on" href="#" class="about">about</a></li>
+			<li><a href="#" class="howto">how to use</a></li>
+			<li><a href="#" class="fork">fork it</a></li>
+		</menu>
+	</header><!-- /header -->
 	<div id="container">
 		<div id="elementsHolder">
 			<canvas id="theCanvas" width="304" height="304"></canvas>
@@ -17,7 +36,7 @@
 			<p id="rgb"></p>
 			<p id="inv"></p>
 		</section>
-		<p class="drop">drop some image from your computer here<span>&darr;</span></p>
+		<p class="drop">drop some image from your computer here<span>&uarr;</span></p>
 	</div>
 
 	<script src="static/colour.js"></script>

@@ -1,35 +1,34 @@
 var win = window,
     doc = win.document,
-     da = doc;
     img = document.createElement("img"),
-     eh = document.querySelector("#elementsHolder");
-    cnv = doc.querySelector("#theCanvas");
-      c = cnv.getContext("2d"),
-   info = doc.querySelector("#info"),
-   ihex = doc.querySelector("#info #hex"),
-   irgb = doc.querySelector("#info #rgb"),
-   ihsl = doc.querySelector("#info #hsl"),
-   iinv = doc.querySelector("#info #inv"),
-  helpr = doc.querySelector("p.drop");
- mGlass = doc.createElement("div"),
-    dbg = false; // set debug flag
+     eh = document.querySelector("#elementsHolder");	// container of canvas and elements
+    cnv = doc.querySelector("#theCanvas");						// canvas element
+      c = cnv.getContext("2d"),												// making it 2d
+   info = doc.querySelector("#info"),									// all infos comes here
+   ihex = doc.querySelector("#info #hex"),						// hex paragraph info
+   irgb = doc.querySelector("#info #rgb"),						// rgb paragraph info
+   ihsl = doc.querySelector("#info #hsl"),						// hsl paragraph info
+   iinv = doc.querySelector("#info #inv"),						// inverted color of seleted one
+  helpr = doc.querySelector("p.drop");								// the guiding text with arrow
+ mGlass = doc.createElement("div"),										// magnifying glass (soon)
+    dbg = false; // set debug flag										// debug mode true|false
 
 // listeners
 doc.addEventListener("DOMContentLoaded", init, false);
 
 // loads as soon as the DOM is loaded
 function init(){
-	da.addEventListener("dragenter", dragEnter, false);
-	da.addEventListener("dragover", dragOver, false);
-	da.addEventListener("drop", drop, false);
-	eh.addEventListener("mousemove", ehMove, false);
-	eh.addEventListener("mouseout", ehOut, false);
-	cnv.addEventListener("mouseover", cnvOver, false);
-	eh.addEventListener("click", ehClick, false);
-	info.addEventListener("click", infoClick, false);
+	doc.addEventListener("dragenter", dragEnter, false);	// entering the drop area, with a file
+	doc.addEventListener("dragover", dragOver, false);		// over the drop area, with a file
+	doc.addEventListener("drop", drop, false);						// dropping the file
+//	eh.addEventListener("mousemove", ehMove, false);			// moving over the image
+//	eh.addEventListener("mouseout", ehOut, false);				// mouse is going out the image
+//	cnv.addEventListener("mouseover", cnvOver, false);		// over the canvas area
+	eh.addEventListener("click", ehClick, false);					// clicking to select the color
+	info.addEventListener("click", infoClick, false);			// clicking the information box
 
 	mGlass.id = "mGlass";
-	eh.appendChild(mGlass);
+	//eh.appendChild(mGlass); // adds the magnifying glass lens
 
 	if(dbg) console.log("initialized.");
 };
@@ -145,44 +144,47 @@ function findPos(obj) {
 	return undefined;
 }
 
-function cnvOver(e){
-	if(img.src.length > 5){
-		doc.querySelector("#mGlass").style.display = "block";
-		if(dbg) console.log('mGlass created');
-	}
-}
+// mGlass related
+// function cnvOver(e){
+// 	if(img.src.length > 5){
+// 		doc.querySelector("#mGlass").style.display = "block";
+// 		if(dbg) console.log('mGlass created');
+// 	}
+// }
 
-function ehOut(e){
-	if(
-		(doc.querySelector("#mGlass").style.display == "block")
-		&& ( e.clientX < eh.offsetLeft 
-			|| e.clientX > (eh.offsetLeft + eh.offsetWidth)
-			|| e.clientY < eh.offsetTop
-			|| e.clientY > (eh.offsetTop + eh.offsetHeight))
-		){
-		doc.querySelector("#mGlass").style.display = "none";
+// mGlass related
+// function ehOut(e){
+// 	if(
+// 		(doc.querySelector("#mGlass").style.display == "block")
+// 		&& ( e.clientX < eh.offsetLeft 
+// 			|| e.clientX > (eh.offsetLeft + eh.offsetWidth)
+// 			|| e.clientY < eh.offsetTop
+// 			|| e.clientY > (eh.offsetTop + eh.offsetHeight))
+// 		){
+// 		doc.querySelector("#mGlass").style.display = "none";
 
-		if(dbg) console.log('mGlass removed');
-	}
-}
+// 		if(dbg) console.log('mGlass removed');
+// 	}
+// }
 
-function ehMove(e){
-	var rX = (e.clientX + win.scrollX), // realX
-	    rY = (e.clientY + win.scrollY), // realY
-	     x = (rX - eh.offsetLeft - 65), // x for mGlass
-	     y = (rY - eh.offsetTop  - 65); // y for mGlass
+// mGlass related
+// function ehMove(e){
+// 	var rX = (e.clientX + win.scrollX), // realX
+// 	    rY = (e.clientY + win.scrollY), // realY
+// 	     x = (rX - eh.offsetLeft - 65), // x for mGlass
+// 	     y = (rY - eh.offsetTop  - 65); // y for mGlass
 
-	if(rX > eh.offsetLeft 
-		 || rX < (eh.offsetLeft + eh.offsetWidth)
-		 || rY > eh.offsetTop
-		 || rY < (eh.offsetTop + eh.offsetHeight)){
-		doc.querySelector("#mGlass").style.top  = y + "px";
-		doc.querySelector("#mGlass").style.left = x + "px";
-	}
+// 	if(rX > eh.offsetLeft 
+// 		 || rX < (eh.offsetLeft + eh.offsetWidth)
+// 		 || rY > eh.offsetTop
+// 		 || rY < (eh.offsetTop + eh.offsetHeight)){
+// 		doc.querySelector("#mGlass").style.top  = y + "px";
+// 		doc.querySelector("#mGlass").style.left = x + "px";
+// 	}
 
-	if(dbg) console.log("off L: "+ eh.offsetLeft + " | off T: "+ eh.offsetTop);
-	if(dbg) console.log("over: x "+ x +" | y "+ y );
-}
+// 	if(dbg) console.log("off L: "+ eh.offsetLeft + " | off T: "+ eh.offsetTop);
+// 	if(dbg) console.log("over: x "+ x +" | y "+ y );
+// }
 
 function infoClick(){
 	if(info.offsetLeft > 20){
