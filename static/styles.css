@@ -164,8 +164,27 @@ p.drop span{
 	     -o-animation: arrow 2s infinite;
 	        animation: arrow 2s infinite;
 }
-
+@-o-keyframes arrow {
+	0%			{ top: -80px; }
+	50%			{ top: -150px; }
+	100%		{ top: -80px; }
+}
+@-ms-keyframes arrow {
+	0%			{ top: -80px; }
+	50%			{ top: -150px; }
+	100%		{ top: -80px; }
+}
+@-moz-keyframes arrow {
+	0%			{ top: -80px; }
+	50%			{ top: -150px; }
+	100%		{ top: -80px; }
+}
 @-webkit-keyframes arrow {
+	0%			{ top: -80px; }
+	50%			{ top: -150px; }
+	100%		{ top: -80px; }
+}
+@keyframes arrow {
 	0%			{ top: -80px; }
 	50%			{ top: -150px; }
 	100%		{ top: -80px; }
