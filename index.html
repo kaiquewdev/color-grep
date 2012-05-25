@@ -4,39 +4,63 @@
 	<meta charset="utf-8">
 	<title>Color grep</title>
 	<link href='http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href="static/normalize.css" rel="stylesheet" type="text/css">
 	<link href="static/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<header>
-		<section id="about" class="descriptions">
-			<h2>About</h2>
+		<section class="about descriptions">
+			<h2 class="descTitle">About</h2>
 			<p>The intention of color grep is to help you picking an exact color from almost any image.</p>
 			
-			<h2>Why this and not a browser extension?</h2>
+			<h2 class="descTitle">Why this and not a browser extension?</h2>
 			<p>Extensions are good to pick color from images already on the browser, not that good for local images. And anyway, I prefer to do a complete webapp :)</p>
 
-			<h2>What's been used to do it?</h2>
+			<h2 class="descTitle">What's been used to do it?</h2>
 			<p>HTML(5), CSS(3), pure JavaScript and <a href="https://github.com/n3dst4/colour.js" title="colour.js" target="_blank">colour.js</a> (for color calculations)</p>
 			<p>Drag & Drop HTML5 JavaScript API, Canvas and hamsters.</p>
 		</section><!-- /descriptions -->
 
-		<menu>
-			<li><a class="on" href="#" class="about">about</a></li>
-			<li><a href="#" class="howto">how to use</a></li>
-			<li><a href="#" class="fork">fork it</a></li>
-		</menu>
 	</header><!-- /header -->
-	<div id="container">
-		<div id="elementsHolder">
-			<canvas id="theCanvas" width="304" height="304"></canvas>
+	<div class="container">
+		<div class="elementsHolder">
+			<canvas class="theCanvas" width="304" height="304"></canvas>
 		</div>
-		<section id="info">
-			<p id="hex"></p>
-			<p id="hsl"></p>
-			<p id="rgb"></p>
-			<p id="inv"></p>
+		<section class="info">
+			<p class="hex"></p>
+			<p class="hsl"></p>
+			<p class="rgb"></p>
+			<p class="inv"></p>
+
+			<iframe 
+				src="http://markdotto.github.com/github-buttons/github-btn.html?user=danielfilho&repo=color-grep&type=watch" 
+				allowtransparency="true" 
+				frameborder="0" 
+				scrolling="0" 
+				width="62px" 
+				height="20px"
+				class="watch"></iframe>
+			<iframe 
+				src="http://markdotto.github.com/github-buttons/github-btn.html?user=danielfilho&repo=color-grep&type=fork"
+				allowtransparency="true" 
+				frameborder="0" 
+				scrolling="0" 
+				width="54px" 
+				height="20px"></iframe>
+			<iframe 
+				src="http://markdotto.github.com/github-buttons/github-btn.html?user=danielfilho&type=follow" 
+				allowtransparency="true" 
+				frameborder="0" 
+				scrolling="0" 
+				width="62px" 
+				height="20px"></iframe>
+
 		</section>
-		<p class="drop">drop some image from your computer here<span>&uarr;</span></p>
+		<p class="drop">
+			Drag &amp; drop some image from your computer here.<br><br>
+			Then, click somewhere to know the color of the pixel
+			<span>&uarr;</span>
+		</p>
 	</div>
 
 	<script src="static/colour.js"></script>
