@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# version 0.7
+
+CACHE:
+
+#images
+static/images/logo.png
+
+#pages
+index.html
+
+#CSS
+static/normalize.css
+static/styles.css
+
+#scripts
+static/colour.js
+static/engine.js
+
+
+# eof
