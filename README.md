@@ -14,10 +14,8 @@ This name from the `g/re/p` (or `grep`) command, used on some systems to retriev
 
 ###Tips
 * If you want something below the information's box, just click on it, and it will slides to the opposite side
-* It have a lack of features, I just published before improve, but there is a ***roadmap*** on the [Issues](./issues).
 
-
-> This web app's idea came from a need I had to practice, so I tried to do something I really use.
+> There will be a blog post telling more about this :)
 
 ---
 
