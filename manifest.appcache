@@ -12,6 +12,7 @@ index.html
 #CSS
 static/normalize.css
 static/styles.css
+http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:400,700
 
 #scripts
 static/colour.js
