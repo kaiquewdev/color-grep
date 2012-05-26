@@ -4,7 +4,7 @@ This name from the `g/re/p` (or `grep`) command, used on some systems to retriev
 
 
 ##How to use:
-1. Access **<http://danielfilho.github.com/Color-Grep/>**.
+1. Access **<http://lab.danielfilho.info/color-grep/>**.
 2. Drag some files from your computer and drop on the circle.
 3. Click wherever you want to capture the exact pixel's color.
 
